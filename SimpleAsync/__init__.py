@@ -2,6 +2,7 @@ import Task
 import Cycle
 import Errors
 from async_implementations import *
+import File
 
 
 if __name__ == "__main__":
@@ -44,8 +45,6 @@ if __name__ == "__main__":
             Some long task, that needs to be ran for a while
         '''
 
-        yield Task.Await(sleep, 30)
-
         for i in range(1, 50):
             print(i)
             yield Task.Continue()
@@ -57,6 +56,14 @@ if __name__ == "__main__":
     main_cycle.register_task(some_task, 1, 5)
     main_cycle.register_task(some_task, 1, 5)
     main_cycle.register_task(background_task)
+    main_cycle.register_task(File.read_async, "testfile.txt")
+    main_cycle.register_task(File.read_async, "testfile.txt")
+    main_cycle.register_task(File.read_async, "testfile.txt")
+    main_cycle.register_task(File.read_async, "testfile.txt")
+    main_cycle.register_task(File.read_async, "testfile.txt")
+    main_cycle.register_task(File.read_async, "testfile.txt")
+    main_cycle.register_task(File.read_async, "testfile.txt")
+    main_cycle.register_task(File.read_async, "testfile.txt")
 
     # running cycle
     main_cycle.run_cycle()
