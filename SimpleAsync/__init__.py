@@ -1,6 +1,7 @@
 import Task
 import Cycle
 import Errors
+from async_implementations import *
 
 
 if __name__ == "__main__":
@@ -42,6 +43,9 @@ if __name__ == "__main__":
         '''
             Some long task, that needs to be ran for a while
         '''
+
+        yield Task.Await(sleep, 30)
+
         for i in range(1, 50):
             print(i)
             yield Task.Continue()
